@@ -52,20 +52,27 @@
           link[i].style.color = 'black';
         }
       }
+      function dayNight(mode) {
+        if (mode === 'night') {
+          night();
+        } else {
+          day();
+        }
+      }
     </script>
     <input
       type="button"
       value="night"
       onclick="
-                // 만약에 이 버튼의 value 값이 night라면 아래 코드가 실행되고, 
-                if(this.value === 'night'){
-                  night();
-                  this.value = 'day'
-                } else {
-                  day();
-                  this.value = 'night';
-                }
-            "
+        // 만약에 이 버튼의 value 값이 night라면 아래 코드가 실행되고, 
+        if(this.value === 'night'){
+          dayNight('night')
+          this.value = 'day'
+        } else {
+          dayNight('day');
+          this.value = 'night';
+        }
+      "
     />
     <!--         
         <input type="button" value="night" 
