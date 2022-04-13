@@ -19,7 +19,6 @@
     </ul>
     <script>
       let contents = ['html', 'css', 'js'];
-      let members = ['egoing', 'leezche', 'graphittie'];
       let scores = [10, 20, 30];
       console.log(contents[2]);
       console.log(contents.length);
@@ -27,5 +26,32 @@
       console.log(contents.push('react'));
       console.log(contents);
     </script>
+
+    <h1>Loop</h1>
+    <script>
+      // debugger;
+      //  for(초기값, boolean => 반복조건, 카운팅 증감)
+      console.log(1);
+      for (let i = 0; i < 3; i++) {
+        // 조건을 만족하는 동안 실행될 코드
+        console.log(2);
+        console.log(3);
+      }
+      console.log(4);
+    </script>
+    <h2>Array + Loop</h2>
+    <ul>
+      <script>
+        let members = ['egoing', 'leezche', 'graphittie', 'duru'];
+        // for (let i = 0; i < members.length; i++) {
+        //   document.write(`<li>${members[i]}</li>`);
+        // }
+        let tag = '';
+        for (let i = 0; i < contents.length; i++) {
+          tag += `<li>${contents[i]}</li>`;
+        }
+        document.write(tag);
+      </script>
+    </ul>
   </body>
 </html>
