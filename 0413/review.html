@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Review</title>
+  </head>
+  <body>
+    <h1><a href="index.html">WEB</a></h1>
+    <input
+      type="button"
+      value="night"
+      onclick="
+        if(this.value==='night'){
+          document.querySelector('body').style.backgroundColor='black'; 
+          document.querySelector('body').style.color='white';
+          this.value='day';
+        }
+        else {
+          document.querySelector('body').style.backgroundColor='white';
+          document.querySelector('body').style.color='black';
+          this.value='night';
+        }
+      "
+    />
+    <ol>
+      <li><a href="../1.html">html</a></li>
+      <li><a href="../2.html">css</a></li>
+      <li><a href="../3.html">javascript</a></li>
+    </ol>
+    <h2>Welcome</h2>
+    Hello, WEB!
+  </body>
+</html>
