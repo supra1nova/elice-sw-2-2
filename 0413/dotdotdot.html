@@ -1,0 +1,39 @@
+<html>
+  <body>
+    JavaScript is
+    <span
+      id="button"
+      style="background-color: rgb(218, 218, 218); padding: 0 5px; cursor: pointer"
+      onclick="
+        document.querySelector('#hidden').style.display='inline'; this.style.display='none'
+      "
+    >
+      ...
+    </span>
+    <span
+      id="hidden"
+      style="display: none"
+      onclick="
+        this.style.display='none'; 
+        document.querySelector('#button').style.display='inline'
+      "
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores libero incidunt qui sint modi dolore, rerum esse voluptas natus laborum id explicabo sed corrupti in sit architecto enim
+      accusamus voluptatem.
+    </span>
+
+    <hr />
+
+    JavaScript is
+    <span
+      style="background-color: rgb(218, 218, 218); padding: 0 5px; cursor: pointer"
+      onclick="
+        this.style.display='none'; 
+        document.querySelector('#content').innerHTML=`Lorem ipsum dolor sit amet consectetur adipisicing elit. <u>Maiores</u> libero incidunt qui sint modi dolore, rerum esse voluptas natus laborum id explicabo sed corrupti in sit architecto enim accusamus voluptatem.`
+      "
+    >
+      ...
+    </span>
+    <span id="content"></span>
+  </body>
+</html>
