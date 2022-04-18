@@ -27,6 +27,7 @@
     </style>
   </head>
   <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
       function night() {
         document.querySelector('body').style.backgroundColor = 'black';
@@ -37,14 +38,17 @@
         }
       }
       function day() {
-        // 아니라면 아래 코드가 실행된다.
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-        // 이 버튼의 value값을 night로 변경한다.1
-        let link = document.querySelectorAll('a');
-        for (let i = 0; i < link.length; i++) {
-          link[i].style.color = 'black';
-        }
+        // document.querySelector('body').style.backgroundColor = 'white';
+        // $('body').css('background-color', 'white');
+        $('body').css('background-color', 'white').css('color', 'white').css('font-size', '100px');
+        // document.querySelector('body').style.color = 'black';
+        $('body').css('color', 'black');
+
+        // let link = document.querySelectorAll('a');
+        // for (let i = 0; i < link.length; i++) {
+        //   link[i].style.color = 'black';
+        // }
+        $('a').css('color', 'white').css('text-decoration', 'underline');
       }
       function dayNight(mode) {
         if (mode === 'night') {
