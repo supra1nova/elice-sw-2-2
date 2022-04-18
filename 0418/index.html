@@ -14,24 +14,56 @@
     <nav>
       <ol></ol>
     </nav>
-    <h2>Welcome</h2>
-    Hello, WEB
+    <article>
+      <h2>Welcome</h2>
+      Hello, WEB
+    </article>
     <script>
-      // let ol = document.querySelector('ol');
-      // for (let i = 0; i < topics.length; i++) {
-      //   let li = document.createElement('li');
-      //   li.innerHTML = topics[i].title;
-      //   ol.appendChild(li);
+      // 함수 선언식
+      // function nav() {
+      //   let navTag = '';
+      //   for (let i = 0; i < topics.length; i++) {
+      //     navTag = navTag + `<li><a href="/read/${topics[i].id}">${topics[i].title}</a></li>`;
+      //   }
+      //   document.querySelector('nav ol').innerHTML = navTag;
+      //   console.log(navTag);
       // }
 
-      function nav() {
+      // 함수 표현식
+      // let nav = function (){
+      //   let navTag = '';
+      //   for (let i = 0; i < topics.length; i++) {
+      //     navTag = navTag + `<li><a href="/read/${topics[i].id}">${topics[i].title}</a></li>`;
+      //   }
+      //   document.querySelector('nav ol').innerHTML = navTag;
+      //   console.log(navTag);
+      // }
+
+      // 화살표 함수
+      let nav = () => {
         let navTag = '';
         for (let i = 0; i < topics.length; i++) {
-          navTag = navTag + `<li><a href="/read/${topics[i].id}">${topics[i].title}</a></li>`;
+          navTag =
+            navTag +
+            `
+          <li>
+            <a href="/read/${topics[i].id}" id="${topics[i].id}" onclick="
+            event.preventDefault();  
+            console.log(event.target.id);
+            for(let i = 0 ; i < topics.length; i++){
+              if(topics[i].id === Number(event.target.id)){
+                document.querySelector('article').innerHTML = '<h2>${topics[i].title}</h2>${topics[i].body}';
+                break;
+              }
+            }
+            ">
+              ${topics[i].title}
+            </a>
+          </li>`;
         }
         document.querySelector('nav ol').innerHTML = navTag;
         console.log(navTag);
-      }
+      };
       nav();
     </script>
   </body>
