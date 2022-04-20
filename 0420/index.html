@@ -40,10 +40,11 @@
     <script>
       // 기본적으로 주어지는 목록 리스트 정의
       const topics = [
-        { id: 1, title: 'html', body: 'thml is...' },
+        { id: 1, title: 'html', body: 'html is...' },
         { id: 2, title: 'css', body: 'css is...' },
         { id: 3, title: 'javascript', body: 'javascript is...' },
       ];
+      let nextId = '';
       let selectedId = null;
 
       function navHandler(e, t) {
@@ -63,6 +64,7 @@
       function welcome() {
         document.querySelector('article').innerHTML = `<h2>Welcome</h2>hello, WEB`;
       }
+
       function read() {
         // 아이디와 일치하는 topics 의 원소를 찾는다 - 필터 함수 이용!! 필터의 콜백 함수는 일치할 때 참, 일치하지 않을 때 거짓을 리턴한다.
         const topic = topics.filter((element) => element.id === selectedId)[0];
@@ -72,7 +74,30 @@
         document.querySelector('article').innerHTML = content;
         control();
       }
-      function create() {}
+
+      function createHandler(e) {
+        e.preventDefault();
+        const t = e.target.title.value;
+        const b = e.target.body.value;
+        const newTopic = { id: nextId, title: t, body: b };
+        topics.push(newTopic);
+        nav();
+        selectedId = nextId;
+        nextId = nextId + 1;
+        read();
+      }
+
+      function create() {
+        const content = `
+          <form onsubmit="createHandler(event);">
+            <p><input type="text" name="title" placeholder="제목"></p>
+            <p><textarea name="body" placeholder="본문"></textarea></p>
+            <p><input type="submit" value="create"></p>
+          </form>
+        `;
+        document.querySelector('article').innerHTML = content;
+      }
+
       function update() {}
       function del() {}
       function control() {
@@ -84,7 +109,7 @@
           `;
         }
         document.querySelector('#control').innerHTML = `
-          <li><a href="/create">Create</a></li>
+          <li><a href="/create" onclick="event.preventDefault(); create();">Create</a></li>
           ${contextUI}
         `;
       }
