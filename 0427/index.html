@@ -142,7 +142,7 @@
 
       async function del() {
         const res = await fetch('http://localhost:3000/topics/' + selectedId, { method: 'DELETE' });
-        const data = res.json();
+        // const data = res.json();
         nav();
         welcome();
       }
@@ -160,6 +160,7 @@
                     ${contextUI}
                 `;
       }
+      debugger;
       nav();
       welcome();
       control();
